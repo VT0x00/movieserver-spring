@@ -81,8 +81,6 @@ public class MovieController {
             throw new IllegalArgumentException("movie file is empty");
         }
 
-        // fileName/filePath/fileSize/createdAt вычисляем на сервере,
-        // клиенту не доверяем (иначе filePath можно было бы указать куда угодно)
         String original = movie.getOriginalFilename();
         int dot = original == null ? -1 : original.lastIndexOf('.');
         if (dot < 0) {

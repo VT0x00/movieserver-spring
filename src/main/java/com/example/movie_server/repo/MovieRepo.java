@@ -17,10 +17,6 @@ public interface MovieRepo extends JpaRepository<Movie, Long> {
     @Query("select m.title from Movie m")
     List<String> findTitles();
 
-    /**
-     * Поиск с опциональными фильтрами: null-параметр означает «фильтр не задан».
-     * JPQL-имя сущности — Movie (не Movies — это имя таблицы).
-     */
     @Query("""
             select m from Movie m
             where (:title is null or m.title like concat('%', :title, '%'))

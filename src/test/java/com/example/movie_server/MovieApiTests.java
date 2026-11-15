@@ -31,7 +31,6 @@ import com.example.movie_server.repo.MovieRepo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-/** Интеграционные тесты REST API: реальный контекст, SQLite в target/, MockMvc. */
 @SpringBootTest
 @AutoConfigureMockMvc
 class MovieApiTests {
@@ -42,8 +41,6 @@ class MovieApiTests {
     @Autowired
     MovieRepo repo;
 
-    // В Boot 4 автоконфигурируемый бин — уже Jackson 3 (tools.jackson),
-    // поэтому ObjectMapper создаём локально, только для парсинга ответа
     private static final ObjectMapper JSON = new ObjectMapper();
 
     @Value("${movie_server.storage-dir}")
